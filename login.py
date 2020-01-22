@@ -1,26 +1,26 @@
 import sys
+import os
 
 from selenium import webdriver
 
 
 driver = webdriver.Firefox()
 
-try: 
-	driver.get("https://nac.nitk.ac.in:8090/")
+URL = os.getenv('PORTAL_URL')
+USER = os.environ.get('PORTAL_USER')
+
+try:
+    driver.get(URL)
 except:
 	sys.exit(0)
 
 username = driver.find_element_by_name("username")
 username.clear()
 
-password = driver.find_element_by_name("password")
-password.clear()
+username.send_keys(USER)
 
-username.send_keys("staff")
-password.send_keys("staff")
+driver.find_element_by_id("submitbutton").click()
 
-driver.find_element_by_id("loginbutton").click()
-
-print "Logged In."
+print("Logged In.")
 
 driver.close()
