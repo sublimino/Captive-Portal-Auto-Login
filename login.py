@@ -11,7 +11,7 @@ USER = os.getenv('PORTAL_USER')
 USER_ELEMENT = os.getenv('PORTAL_USER_ELEMENT_NAME', "username")
 PASS = os.getenv('PORTAL_PASS', '')
 PASS_ELEMENT = os.getenv('PORTAL_PASS_ELEMENT_NAME', "password")
-SUBMIT_ELEMENT_ID = os.getenv('PORTAL_SUBMIT_ELEMENT_ID')
+SUBMIT_ELEMENT_ID = os.getenv('PORTAL_SUBMIT_ELEMENT_ID', "submitbutton")
 
 try:
     driver.get(URL)
